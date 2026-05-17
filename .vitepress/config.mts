@@ -22,7 +22,8 @@ export default defineConfig({
         items: [
           { text: 'JavaScriptとは', link: '/JavaScript' },
           { text: '1: 変数', link: '/JavaScript/variable' },
-          { text: '2: データ型', link: '/JavaScript/data-types' }
+          { text: '2: データ型', link: '/JavaScript/data-types' },
+          { text: '3: 関数', link: '/JavaScript/functions' }
         ]
       },
       {
