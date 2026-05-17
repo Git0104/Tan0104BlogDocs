@@ -2,6 +2,7 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  base: '/Tan0104BlogDocs/', // 👈 これを絶対に入れてください（前後のスラッシュに注意！）
   title: "Tan0104BlogDocs",
   description: "Welcome! This site provides information on how to use JavaScript and Python.",
   themeConfig: {

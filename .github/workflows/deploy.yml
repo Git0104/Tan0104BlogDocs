@@ -9,22 +9,30 @@ permissions:
   pages: write
   id-token: write
 
+<<<<<<< HEAD
 concurrency:
   group: pages
   cancel-in-progress: false
 
+=======
+>>>>>>> f93e964104b23c77cb15e2a7b8106317ecae3fa4
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+<<<<<<< HEAD
         with:
           fetch-depth: 0
+=======
+      
+>>>>>>> f93e964104b23c77cb15e2a7b8106317ecae3fa4
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
+<<<<<<< HEAD
           cache: npm
       - name: Install dependencies
         run: npm install
@@ -46,3 +54,28 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+=======
+
+      # package.jsonがないので、直接vitepressをインストールしてビルドする指示
+      - name: Build with VitePress
+        run: |
+          npm install vitepress
+          npx vitepress build .
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # パスは .vitepress/dist に固定
+          path: .vitepress/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+>>>>>>> f93e964104b23c77cb15e2a7b8106317ecae3fa4
